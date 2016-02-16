@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6C5CE3761C722E6000BBB715 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5CE3751C722E6000BBB715 /* APIManager.swift */; };
+		6C5CE3791C72888B00BBB715 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5CE3781C72888B00BBB715 /* Constants.swift */; };
 		6C643A9D1C71473C00710835 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C643A9C1C71473C00710835 /* AppDelegate.swift */; };
 		6C643A9F1C71473C00710835 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C643A9E1C71473C00710835 /* ViewController.swift */; };
 		6C643AA21C71473C00710835 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C643AA01C71473C00710835 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		6C5CE3751C722E6000BBB715 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = Model/APIManager.swift; sourceTree = "<group>"; };
+		6C5CE3781C72888B00BBB715 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		6C643A991C71473C00710835 /* Music Videos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Videos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C643A9C1C71473C00710835 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C643A9E1C71473C00710835 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		6C5CE3771C72885300BBB715 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6C5CE3781C72888B00BBB715 /* Constants.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		6C643A901C71473C00710835 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +77,7 @@
 				6C5CE3741C722E3800BBB715 /* Model */,
 				6C643AAF1C71478600710835 /* Views */,
 				6C643AB01C714B8600710835 /* Controllers */,
+				6C5CE3771C72885300BBB715 /* Utilities */,
 				6C643AB11C714B9800710835 /* Resources */,
 				6C643AAE1C71477000710835 /* Supporting Files */,
 			);
@@ -181,6 +192,7 @@
 				6C5CE3761C722E6000BBB715 /* APIManager.swift in Sources */,
 				6C643A9F1C71473C00710835 /* ViewController.swift in Sources */,
 				6C643A9D1C71473C00710835 /* AppDelegate.swift in Sources */,
+				6C5CE3791C72888B00BBB715 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
