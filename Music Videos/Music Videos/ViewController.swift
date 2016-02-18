@@ -12,13 +12,32 @@ class ViewController: UIViewController {
     
     var musicVideos = [MusicVideos]()
 
+    @IBOutlet weak var displayLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Add the Reachabililty Observer
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: NOTIFICATION_REACHABILITY_STATUS_CHANGED, object: nil)
+        displayLabel.text = ""
+        reachabilityStatusChanged()
+        
         // Call the API Manager
         let api = APIManager()
         api.loadData(iTunesTopMusicVideos, completion: didLoadData)
+    }
+    
+    
+    func reachabilityStatusChanged() {
+        switch reachabilityStatus {
+        case NOACCESS: view.backgroundColor = UIColor.redColor()
+            displayLabel.text = "No Internet"
+        case WIFI: view.backgroundColor = UIColor.greenColor()
+            displayLabel.text = "Reachable via WiFi"
+        case WWAN: view.backgroundColor = UIColor.yellowColor()
+            displayLabel.text = "Reachable via Cellular"
+        default: return
+        }
     }
     
     
@@ -42,6 +61,12 @@ class ViewController: UIViewController {
         
         alert.addAction(okAction)
         presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
+    // Remove the observer when the ViewController is deallocated
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: NOTIFICATION_REACHABILITY_STATUS_CHANGED, object: nil)
     }
 }
 
