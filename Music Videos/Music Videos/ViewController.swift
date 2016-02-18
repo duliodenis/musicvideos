@@ -9,7 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var musicVideos = [MusicVideos]()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,8 +21,18 @@ class ViewController: UIViewController {
         api.loadData(iTunesTopMusicVideos, completion: didLoadData)
     }
     
-    func didLoadData(result: String) {
-        let alert = UIAlertController(title: result, message: nil, preferredStyle: .Alert)
+    
+    func didLoadData(videos: [MusicVideos]) {
+        musicVideos = videos
+        
+        var videoList: String = ""
+        
+        for video in musicVideos {
+            print("\(video.name)")
+            videoList += "\(video.name), "
+        }
+        
+        let alert = UIAlertController(title: "Top \(videos.count) Music Videos", message: "\(videoList)", preferredStyle: .Alert)
         
         let okAction = UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
             // do something
