@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     
     
     func didLoadData(videos: [MusicVideos]) {
+        print(reachabilityStatus)
+        
         musicVideos = videos
         
         var videoList: String = ""

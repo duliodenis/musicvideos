@@ -22,3 +22,5 @@ let WIFI = "WIFI Available"
 let NOACCESS = "No Internet Access"
 
 let WWAN = "Cellular Access Available"
+
+let NOTIFICATION_REACHABILITY_STATUS_CHANGED = "ReachabilityStatusChanged"
