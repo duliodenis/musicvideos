@@ -12,7 +12,7 @@ typealias JSONDictionary = [String: AnyObject]
 
 typealias JSONArray = Array<AnyObject>
 
-let iTunesTopMusicVideos = "https://itunes.apple.com/us/rss/topmusicvideos/limit=10/json"
+let iTunesTopMusicVideos = "https://itunes.apple.com/us/rss/topmusicvideos/limit=100/json"
 
 
 // Reachability Constants

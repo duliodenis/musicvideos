@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var musicVideos = [MusicVideos]()
 
     @IBOutlet weak var displayLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,31 +43,36 @@ class ViewController: UIViewController {
     
     
     func didLoadData(videos: [MusicVideos]) {
-        print(reachabilityStatus)
-        
         musicVideos = videos
-        
-        var videoList: String = ""
-        
-        for video in musicVideos {
-            print("\(video.name)")
-            videoList += "\(video.name), "
-        }
-        
-        let alert = UIAlertController(title: "Top \(videos.count) Music Videos", message: "\(videoList)", preferredStyle: .Alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
-            // do something
-        }
-        
-        alert.addAction(okAction)
-        presentViewController(alert, animated: true, completion: nil)
+        tableView.reloadData()
     }
     
     
     // Remove the observer when the ViewController is deallocated
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: NOTIFICATION_REACHABILITY_STATUS_CHANGED, object: nil)
+    }
+    
+    
+    // MARK: Table View Delegate Methods
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return musicVideos.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+        let musicVideo = musicVideos[indexPath.row]
+        
+        cell.textLabel?.text = "\(indexPath.row + 1)"
+        cell.detailTextLabel?.text = musicVideo.name
+
+        return cell
     }
 }
 
