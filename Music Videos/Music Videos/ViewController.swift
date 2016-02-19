@@ -22,22 +22,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: NOTIFICATION_REACHABILITY_STATUS_CHANGED, object: nil)
         displayLabel.text = ""
         reachabilityStatusChanged()
-        
-        // Call the API Manager
-        let api = APIManager()
-        api.loadData(iTunesTopMusicVideos, completion: didLoadData)
     }
     
     
     func reachabilityStatusChanged() {
         switch reachabilityStatus {
-        case NOACCESS: view.backgroundColor = UIColor.redColor()
-            displayLabel.text = "No Internet"
-        case WIFI: view.backgroundColor = UIColor.greenColor()
-            displayLabel.text = "Reachable via WiFi"
-        case WWAN: view.backgroundColor = UIColor.yellowColor()
-            displayLabel.text = "Reachable via Cellular"
-        default: return
+        case NOACCESS:
+            view.backgroundColor = UIColor.redColor()
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                let alert = UIAlertController(title: "No Internet Access", message: "Please ensure you have a connection to the internet.", preferredStyle: .Alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: .Default) { action -> () in
+                    print("OK")
+                }
+                
+                alert.addAction(okAction)
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+                self.displayLabel.text = "No Internet"
+            }
+            
+        default:
+            view.backgroundColor = UIColor.greenColor()
+            displayLabel.text = "Internet Access"
+            if musicVideos.count == 0 {
+                callAPI()
+            } else {
+                print("No refresh required")
+            }
         }
     }
     
@@ -45,6 +58,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func didLoadData(videos: [MusicVideos]) {
         musicVideos = videos
         tableView.reloadData()
+    }
+    
+    
+    func callAPI() {
+        // Call the API Manager
+        let api = APIManager()
+        api.loadData(iTunesTopMusicVideos, completion: didLoadData)
     }
     
     
