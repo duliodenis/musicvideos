@@ -14,6 +14,8 @@ class MusicVideos {
     private var _imageURL: String
     private var _videoURL: String
     
+    var rank = 0 // assign this in the API Manager
+    
     var name: String {
         return _name
     }
@@ -25,7 +27,7 @@ class MusicVideos {
     var videoURL: String {
         return _videoURL
     }
-    
+
     
     // MARK: Initializer for Music Video Object
     

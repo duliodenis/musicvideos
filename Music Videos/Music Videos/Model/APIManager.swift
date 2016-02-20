@@ -31,8 +31,9 @@ class APIManager {
                             // make a MusicVideo array
                             var musicVideos = [MusicVideos]()
                             // and iterate through the JSON to gather the music video objects
-                            for entry in entries {
+                            for (index, entry) in entries.enumerate() {
                                 let musicVideo = MusicVideos(data: entry as! JSONDictionary)
+                                musicVideo.rank = index + 1
                                 musicVideos.append(musicVideo)
                             }
                             
