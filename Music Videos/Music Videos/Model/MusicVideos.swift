@@ -14,7 +14,8 @@ class MusicVideos {
     private var _imageURL: String
     private var _videoURL: String
     
-    var rank = 0 // assign this in the API Manager
+    var rank = 0            // this variable is assigned in the API Manager
+    var imageData: NSData?  // this variable gets created from the UI
     
     var name: String {
         return _name

@@ -25,6 +25,32 @@ class MusicVideoTableViewCell: UITableViewCell {
     func updateCell() {
         videoTitle.text = video?.name
         videoRank.text = "\(video!.rank)"
-        videoImageView.image = UIImage(named: "imageNotAvailable")
+        //videoImageView.image = UIImage(named: "imageNotAvailable")
+        
+        if video!.imageData != nil {
+            // get data from array
+            videoImageView.image = UIImage(data: video!.imageData!)
+        } else {
+            getVideoImages(video!, imageView: videoImageView)
+        }
+    }
+    
+    
+    func getVideoImages(video: MusicVideos, imageView: UIImageView) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            let data = NSData(contentsOfURL: NSURL(string: video.imageURL)!)
+            
+            var image: UIImage?
+            
+            if data != nil {
+                video.imageData = data
+                image = UIImage(data: data!)
+            }
+            
+            // back to the main queue
+            dispatch_async(dispatch_get_main_queue()) {
+                imageView.image = image
+            }
+        }
     }
 }
