@@ -76,6 +76,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: Table View Delegate Methods
     
+    private struct storyboard {
+        static let cellReuseIdentifier = "cell"
+    }
+    
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -85,12 +90,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(storyboard.cellReuseIdentifier, forIndexPath: indexPath) as! MusicVideoTableViewCell
         
-        let musicVideo = musicVideos[indexPath.row]
-        
-        cell.textLabel?.text = "\(musicVideo.rank)"
-        cell.detailTextLabel?.text = musicVideo.name
+        cell.video = musicVideos[indexPath.row]
 
         return cell
     }

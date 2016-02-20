@@ -10,15 +10,21 @@ import UIKit
 
 class MusicVideoTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var videoImageView: UIImageView!
+    @IBOutlet weak var videoRank: UILabel!
+    @IBOutlet weak var videoTitle: UILabel!
+    
+    
+    var video: MusicVideos? {
+        didSet {
+            updateCell()
+        }
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    
+    func updateCell() {
+        videoTitle.text = video?.name
+        videoRank.text = "\(video!.rank)"
+        videoImageView.image = UIImage(named: "imageNotAvailable")
     }
-
 }

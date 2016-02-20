@@ -15,6 +15,7 @@
 		6C643AA41C71473C00710835 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C643AA31C71473C00710835 /* Assets.xcassets */; };
 		6C643AA71C71473C00710835 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C643AA51C71473C00710835 /* LaunchScreen.storyboard */; };
 		6C7FA09D1C7660A700EF39FB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7FA09C1C7660A700EF39FB /* Reachability.m */; };
+		6CA4FEB81C78E56A0052B464 /* MusicVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA4FEB71C78E56A0052B464 /* MusicVideoTableViewCell.swift */; };
 		6CD5EE971C73836800EFD738 /* MusicVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5EE961C73836800EFD738 /* MusicVideos.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		6C7FA09A1C7660A600EF39FB /* Music Videos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Music Videos-Bridging-Header.h"; sourceTree = "<group>"; };
 		6C7FA09B1C7660A700EF39FB /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Utilities/Reachability.h; sourceTree = "<group>"; };
 		6C7FA09C1C7660A700EF39FB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Utilities/Reachability.m; sourceTree = "<group>"; };
+		6CA4FEB71C78E56A0052B464 /* MusicVideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicVideoTableViewCell.swift; path = Controllers/MusicVideoTableViewCell.swift; sourceTree = "<group>"; };
 		6CD5EE961C73836800EFD738 /* MusicVideos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicVideos.swift; path = Model/MusicVideos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				6C643A9E1C71473C00710835 /* ViewController.swift */,
+				6CA4FEB71C78E56A0052B464 /* MusicVideoTableViewCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				6C643A9F1C71473C00710835 /* ViewController.swift in Sources */,
 				6C643A9D1C71473C00710835 /* AppDelegate.swift in Sources */,
 				6C7FA09D1C7660A700EF39FB /* Reachability.m in Sources */,
+				6CA4FEB81C78E56A0052B464 /* MusicVideoTableViewCell.swift in Sources */,
 				6C5CE3791C72888B00BBB715 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
