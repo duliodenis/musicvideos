@@ -11,7 +11,7 @@ import UIKit
 class MusicVideoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var videoImageView: UIImageView!
-    @IBOutlet weak var videoRank: UILabel!
+    @IBOutlet weak var videoArtist: UILabel!
     @IBOutlet weak var videoTitle: UILabel!
     
     
@@ -23,9 +23,12 @@ class MusicVideoTableViewCell: UITableViewCell {
     
     
     func updateCell() {
+        // Use Preferred for for Accessibility
+        videoTitle.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        videoArtist.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        
         videoTitle.text = video?.name
-        videoRank.text = "\(video!.rank)"
-        //videoImageView.image = UIImage(named: "imageNotAvailable")
+        videoArtist.text = video?.artist
         
         if video!.imageData != nil {
             // get data from array

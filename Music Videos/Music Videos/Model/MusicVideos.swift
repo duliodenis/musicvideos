@@ -11,6 +11,7 @@ import Foundation
 class MusicVideos {
     
     private var _name: String
+    private var _artist: String
     private var _imageURL: String
     private var _videoURL: String
     
@@ -19,6 +20,10 @@ class MusicVideos {
     
     var name: String {
         return _name
+    }
+    
+    var artist: String {
+        return _artist
     }
     
     var imageURL: String {
@@ -39,6 +44,14 @@ class MusicVideos {
             _name = videoName
         } else { // in case we get nothing back from the JSON
             _name = ""
+        }
+        
+        // Video Artist
+        if let videoArtistDictionary = data["im:artist"] as? JSONDictionary,
+            videoArtist = videoArtistDictionary["label"] as? String {
+                _artist = videoArtist
+        } else { // in case we get nothing back from the JSON
+            _artist = ""
         }
         
         // Video Image
