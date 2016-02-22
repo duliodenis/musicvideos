@@ -78,6 +78,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     private struct storyboard {
         static let cellReuseIdentifier = "cell"
+        static let detailSegueIdentifier = "musicVideoDetailSegue"
     }
     
     
@@ -96,5 +97,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         return cell
     }
+    
+    
+    // MARK: Navigation Functions
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == storyboard.detailSegueIdentifier {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let musicVideo = musicVideos[indexPath.row]
+                let detailVC = segue.destinationViewController as! MusicVideoDetailViewController
+                detailVC.musicVideo = musicVideo
+            }
+        }
+    }
+    
 }
 
